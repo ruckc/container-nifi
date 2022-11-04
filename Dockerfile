@@ -2,11 +2,14 @@ FROM docker.io/eclipse-temurin:17-jre
 
 ARG VERSION=1.18.0
 
-RUN mkdir -p /opt && \
-    curl -s -L https://www.apache.org/dyn/closer.lua/nifi/${VERSION}/nifi-${VERSION}-bin.tar.gz?action=download -o /tmp/nifi.tar.gz && \
-    tar -zxvf /tmp/nifi.tar.gz -C /opt && \
+RUN apt update && \
+    apt install unzip && \
+    apt clean all && \
+    mkdir -p /opt && \
+    curl -s -L https://www.apache.org/dyn/closer.lua/nifi/${VERSION}/nifi-${VERSION}-bin.zip?action=download -o /tmp/nifi.zip && \
+    unzip /tmp/nifi.zip -d /opt && \
     mv /opt/nifi-${VERSION} /opt/nifi && \
-    rm -rf /tmp/nifi.tar.gz
+    rm -rf /tmp/nifi.zip
 
 COPY run.sh /opt/nifi/run.sh
 
