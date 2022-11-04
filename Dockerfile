@@ -1,6 +1,6 @@
 FROM docker.io/eclipse-temurin:17-jre
 
-ARG VERSION=1.16.3
+ARG VERSION=1.18.0
 
 RUN mkdir -p /opt && \
     curl -s -L https://www.apache.org/dyn/closer.lua/nifi/${VERSION}/nifi-${VERSION}-bin.tar.gz?action=download -o /tmp/nifi.tar.gz && \
