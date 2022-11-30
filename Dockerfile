@@ -1,4 +1,4 @@
-FROM docker.io/eclipse-temurin:17-jre
+FROM docker.io/eclipse-temurin:17.0.5_8-jre
 
 ARG VERSION=1.18.0
 
