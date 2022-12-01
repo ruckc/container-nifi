@@ -1,6 +1,6 @@
 FROM docker.io/eclipse-temurin:17.0.5_8-jre
 
-ARG VERSION=1.18.0
+ARG VERSION=1.19.0
 
 RUN apt update && \
     apt install unzip && \
